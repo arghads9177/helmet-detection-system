@@ -1,0 +1,19 @@
+# Training hyperparameters and augmentation policy.
+# Mirrors what goes into artifacts/experiment_results/<version>/metadata.json after a run.
+
+epochs: 100
+batch_size: 16
+lr: 0.001
+seed: 42
+img_size: 640
+
+base_weights: null   # e.g. yolo26s.pt — pretrained checkpoint to fine-tune from
+
+augmentation:
+  hflip: 0.5
+  mosaic: 1.0
+  # Document anything intentionally disabled and why (e.g. vflip: 0 — orientation is fixed on site).
+
+tracking:
+  backend: wandb   # wandb | mlflow | none
+  project: null

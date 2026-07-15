@@ -1,0 +1,17 @@
+# Dataset paths, split ratios, and class reference.
+# Loaded via scripts/utilities/config.py — never hardcode these paths in scripts or ml/.
+
+raw_dir: data/raw
+interim_dir: data/interim
+processed_dir: data/processed
+metadata_dir: data/metadata
+
+classes_file: data/metadata/class_names.txt
+
+split:
+  train: 0.8
+  val: 0.1
+  test: 0.1
+  # Split by source (video/scene/capture session), never by random frame — see
+  # scripts/dataset_split/ and the "Guard against split leakage" note in SKILL.md.
+  strategy: by_session

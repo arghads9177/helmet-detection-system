@@ -1,0 +1,9 @@
+# Non-secret API behavior. Secrets and per-deployment values (host, port, camera URLs,
+# API keys) belong in api-services/config/.env instead — see Configuration Management.
+
+cors_allowed_origins:
+  - "http://localhost:4200"
+
+rate_limit_per_minute: 60
+pagination_default_page_size: 50
+pagination_max_page_size: 200

@@ -1,0 +1,20 @@
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.api
+    env_file:
+      - ../api-services/config/.env
+    ports:
+      - "8000:8000"
+
+  ui:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.ui
+    env_file:
+      - ../ui-services/config/.env
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api

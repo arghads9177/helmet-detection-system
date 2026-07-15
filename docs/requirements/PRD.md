@@ -224,16 +224,18 @@ trust.
 
 ## 10. Open Questions
 
-| # | Question | Blocks | Owner |
-|---|---|---|---|
-| 1 | Does the dev machine have a CUDA GPU? If CPU-only, the ≥10 FPS live target in §2.2 is unachievable and must be renegotiated. | Phase 2 model sizing | User |
-| 2 | Real camera resolution, mounting angle, and worker distance — what is the actual head size in pixels? | Phase 1 annotation, imgsz choice | User / site |
-| 3 | Is factory footage cleared for use? Worker consent, on-prem-only storage, retention period? | Phase 1 data collection | User / EHS |
-| 4 | How much footage exists or can be captured, and how many `no_helmet` instances can realistically be gathered? Staged violations may be needed — a compliant factory yields few natural positives. | Phase 1 feasibility | User |
-| 5 | AGPL-3.0 (Ultralytics) — internal-only forever, or productized later? Decide before Phase 8. | Phase 8 / commercialization | User |
-| 6 | Violation log retention and storage backend (SQLite sufficient for POC?) | M5 | User |
-| 7 | Angular vs. Streamlit for the POC dashboard — Angular is ~an order of magnitude more build effort for the same POC evidence. Confirm Angular is a hard requirement. | Phase 6 | User |
-| 8 | Deduplication window for repeated violations of the same stationary worker (proposed: 30 s) | M5 | User |
+| # | Question | Blocks | Owner | Resolution (2026-07-15) |
+|---|---|---|---|---|
+| 1 | Does the dev machine have a CUDA GPU? If CPU-only, the ≥10 FPS live target in §2.2 is unachievable and must be renegotiated. | Phase 2 model sizing | User | **No local GPU.** Training moves to Colab / a rented cloud GPU (per implementation plan Phase 2–3). Local inference is CPU-only — the ≥10 FPS live target in §2.2 is **not achievable on the dev machine as scoped** and must be re-judged in Phase 7.3 against actual CPU throughput, or renegotiated (frame-skipping, smaller `img_size`, or GPU inference hardware) before that gate. |
+| 2 | Real camera resolution, mounting angle, and worker distance — what is the actual head size in pixels? | Phase 1 annotation, imgsz choice | User / site | Deferred to empirical measurement — **Slice 1.1 recon spike**, not answered here. |
+| 3 | Is factory footage cleared for use? Worker consent, on-prem-only storage, retention period? | Phase 1 data collection | User / EHS | **Cleared for use, cloud storage/processing permitted.** Footage may be uploaded to Colab / cloud storage for training (no on-prem-only restriction). Phase 1 collection may proceed. |
+| 4 | How much footage exists or can be captured, and how many `no_helmet` instances can realistically be gathered? Staged violations may be needed — a compliant factory yields few natural positives. | Phase 1 feasibility | User | **Unknown — to be measured, not assumed.** Proceed to Phase 1 provisionally; Slice 1.1 (recon) and Slice 1.2 (dataset plan) must measure real `no_helmet` volume and set an explicit floor. Default assumption until measured: natural violations will likely be insufficient, so **plan to stage violations** and confirm/adjust after recon. The Phase 0→1 gate item "OQ4 answered" is satisfied by this staging default plus the recon measurement, not by a precise headcount. |
+| 5 | AGPL-3.0 (Ultralytics) — internal-only forever, or productized later? Decide before Phase 8. | Phase 8 / commercialization | User | **Internal-only.** AGPL-3.0 is not a blocker under this scope; revisit only if productization/external distribution is later proposed. |
+| 6 | Violation log retention and storage backend (SQLite sufficient for POC?) | M5 | User | Deferred to Phase 5 (low cost to defer, per implementation plan). |
+| 7 | Angular vs. Streamlit for the POC dashboard — Angular is ~an order of magnitude more build effort for the same POC evidence. Confirm Angular is a hard requirement. | Phase 6 | User | **Angular confirmed as a hard requirement.** Proceed per TDD §8 / implementation plan Phase 6 as originally scoped. |
+| 8 | Deduplication window for repeated violations of the same stationary worker (proposed: 30 s) | M5 | User | Deferred to Phase 5; proposed default (30 s) stands until tuned. |
+
+**Model family (OQ-M, implementation plan §0.A):** **YOLO11** (n baseline, s as an escalation step per Slice 2.6) is the confirmed house standard for this project — not the `yolo26s` template default. TDD §2 and the implementation plan already reference YOLO11; no changes needed there.
 
 ---
 _Saved to `docs/requirements/PRD.md`. The TDD (`docs/architecture/TDD.md`) references this file._

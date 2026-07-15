@@ -29,8 +29,8 @@
 
 | Phase | Name | Status | Gate met? |
 |---|---|---|---|
-| 0 | Problem Definition | 🟡 In progress — PRD ✅, TDD ✅, blockers open, scaffold pending | ❌ |
-| 1 | Data Engineering | ⚪ Blocked on P0 | ❌ |
+| 0 | Problem Definition | 🟢 Gate met — PRD ✅, TDD ✅, blocking OQs resolved, repo scaffolded | ✅ |
+| 1 | Data Engineering | ⚪ Not started — gate met, ready to start | ❌ |
 | **2–3** | **Training & Evaluation** (merged — one notebook) | ⚪ Not started | ❌ |
 | 4 | Inference Pipeline | ⚪ Not started | ❌ |
 | 5 | REST API | ⚪ Not started | ❌ |
@@ -72,19 +72,21 @@ The phases after it are well-trodden; Phase 1 is where it succeeds or fails.
 These are PRD §10 open questions. Each one, left open, invalidates work done downstream.
 **They are ordered by cost-of-delay, not by difficulty.**
 
-| # | Question | Blocks | Why it can't wait |
+| # | Question | Blocks | Resolution (2026-07-15) |
 |---|---|---|---|
-| **OQ3** | Is factory footage cleared for use? Consent, on-prem-only storage, retention? | **Phase 1 start** | Discovering "you can't use that footage" *after* collection and annotation destroys the single most expensive artifact in the project |
-| **OQ4** | How many `no_helmet` instances can realistically be gathered? | **Phase 1 planning** | Determines whether violations must be **staged**. Shapes what you go out and film — unfixable afterward without a second shoot |
-| **OQ1** | Does the dev machine have a CUDA GPU? | Phase 2 sizing, PRD §2.2 | If CPU-only, the ≥10 FPS live target is fiction and must be renegotiated *now*, not demoed as a failure in Phase 7 |
-| **OQ2** | Real camera resolution / angle / worker distance → head size in px? | Phase 1 annotation | Answered empirically by **Slice 1.1**, not by asking. Listed here so it isn't forgotten |
-| **OQ7** | Angular hard requirement, or is Streamlit acceptable? | Phase 6 scope | Cheap to decide now; ~1–2 weeks of difference later |
-| **OQ5** | AGPL-3.0 — internal-only, or productized later? | Phase 8 / commercial | Cheap now. Post-training discovery = retrain on a different architecture |
-| **OQ6** | Violation log retention + backend (SQLite OK?) | M5 | Low cost to defer to Phase 5 |
-| **OQ8** | Dedup window (proposed 30 s) | M5 | Low cost to defer; tunable |
-| **OQ-M** | **YOLO11 vs. the templates' `yolo26s`** — which model family is the house standard? | Phase 2 | TDD §2. Don't design around a template example; confirm the intended family |
+| **OQ3** | Is factory footage cleared for use? Consent, on-prem-only storage, retention? | **Phase 1 start** | ✅ **Resolved.** Cleared for use; cloud storage/processing permitted (no on-prem-only restriction). Colab remains a legal venue for training. |
+| **OQ4** | How many `no_helmet` instances can realistically be gathered? | **Phase 1 planning** | ✅ **Resolved (provisional).** Volume unknown — measure via **Slice 1.1** recon + **Slice 1.2** dataset plan. Default assumption: natural violations will be insufficient; **plan to stage** and confirm the floor after recon. |
+| **OQ1** | Does the dev machine have a CUDA GPU? | Phase 2 sizing, PRD §2.2 | ✅ **Resolved.** No local GPU. Training moves to Colab/cloud GPU. Local inference is CPU-only — the ≥10 FPS target is **not achievable as scoped**; must be re-judged in Phase 7.3 or renegotiated (frame-skipping / smaller `img_size` / GPU inference hardware) before that gate. |
+| **OQ2** | Real camera resolution / angle / worker distance → head size in px? | Phase 1 annotation | Still deferred — answered empirically by **Slice 1.1**, not by asking. |
+| **OQ7** | Angular hard requirement, or is Streamlit acceptable? | Phase 6 scope | ✅ **Resolved.** Angular confirmed as a hard requirement. |
+| **OQ5** | AGPL-3.0 — internal-only, or productized later? | Phase 8 / commercial | ✅ **Resolved.** Internal-only; not a blocker. |
+| **OQ6** | Violation log retention + backend (SQLite OK?) | M5 | Deferred to Phase 5 (low cost to defer). |
+| **OQ8** | Dedup window (proposed 30 s) | M5 | Deferred to Phase 5; 30 s default stands. |
+| **OQ-M** | **YOLO11 vs. the templates' `yolo26s`** — which model family is the house standard? | Phase 2 | ✅ **Resolved.** YOLO11 (n baseline, s escalation) is the house standard. |
 
-**Minimum to unblock Phase 1:** OQ3 and OQ4. **Minimum to unblock Phase 2:** OQ1 and OQ-M.
+**Minimum to unblock Phase 1:** OQ3 ✅ and OQ4 ✅ (provisional — recon still required). **Minimum to unblock Phase 2:** OQ1 ✅ and OQ-M ✅.
+
+Full resolutions recorded in `docs/requirements/PRD.md` §10.
 
 ### 0.B — Scaffold the repository
 
@@ -112,16 +114,24 @@ git status                        # no data/weights staged; docs/ intact
 
 ### 0.C — Encode conventions
 
-- [ ] `.claude/CLAUDE.md` written by the scaffold — verify it reflects the conventions
-- [ ] `docs/workflow/annotation_guidelines.md` — **drafted before Phase 1.3** (see Slice 1.3)
+- [x] `.claude/CLAUDE.md` written by the scaffold — verified: reflects uv/config/logging/layout/
+      data/tests conventions; also documents the exFAT-drive venv workaround for this machine
+- [ ] `docs/workflow/annotation_guidelines.md` — **drafted before Phase 1.3** (see Slice 1.3) —
+      not yet written; correctly deferred to just before Slice 1.3, not part of Phase 0 gate
 
 ### 🚦 Gate → Phase 1
 
-- [ ] PRD + TDD approved (not just written — **approved**)
-- [ ] **OQ3 resolved** — footage legally usable, storage location decided
-- [ ] **OQ4 answered** — realistic `no_helmet` volume known; staging decided
-- [ ] Repo scaffolded; `uv sync && uv run pytest` green; existing README/.gitignore preserved
-- [ ] `uv export --no-dev -o requirements.txt` committed
+- [x] PRD + TDD approved (not just written — **approved**)
+- [x] **OQ3 resolved** — cleared for use, cloud storage/processing permitted
+- [x] **OQ4 answered (provisional)** — volume unknown; staging planned as default, to be
+      confirmed by Slice 1.1 recon + Slice 1.2 dataset plan
+- [x] Repo scaffolded; `uv sync && uv run pytest` green (2 passed); existing README/.gitignore
+      preserved and merged with the scaffold's CV-specific rules
+- [x] `uv export --no-dev -o requirements.txt` committed
+
+**Note:** this working copy sits on an exFAT drive, which doesn't support symlinks that
+`uv sync` needs for `.venv`. Set `UV_PROJECT_ENVIRONMENT=~/.venvs/helmet-detection-system`
+before running `uv`/`uv run` — documented in `.claude/CLAUDE.md`.
 
 **If the gate fails:** OQ3 unresolved → **do not collect footage.** OQ4 says violations are
 unobtainable in useful numbers → stop and revisit scope with stakeholders; a helmet detector that

@@ -4,9 +4,9 @@ A computer vision proof-of-concept that detects whether workers are wearing safe
 factory floor, from images, video, webcam, or an RTSP/mobile camera feed — surfacing violations to
 a supervisor in near-real-time and logging them for compliance audits.
 
-> **Status: Phase 0 (Problem Definition) — planning complete, implementation not yet started.**
-> This repository currently contains the requirements, design, and implementation plan. Code,
-> data pipeline, and model training begin in Phase 1. See [Project status](#project-status) below.
+> **Status: Phase 0 (Problem Definition) — planning complete, blocking decisions resolved, repo
+> scaffolded.** Code, data pipeline, and model training begin in Phase 1. See
+> [Project status](#project-status) below.
 
 ## The problem
 
@@ -62,8 +62,8 @@ silent while a false alarm merely costs attention.
 
 | Phase | What | Status |
 |---|---|---|
-| 0 | Problem definition (PRD + TDD) | ✅ Done |
-| 1 | Data engineering (collection, annotation, split) | ⬜ Not started |
+| 0 | Problem definition (PRD + TDD, blocking decisions, scaffold) | ✅ Done |
+| 1 | Data engineering (collection, annotation, split) | ⬜ Not started — ready to start |
 | 2–3 | Training & evaluation (merged, one notebook) | ⬜ Not started |
 | 4 | Inference pipeline (image/video/webcam/RTSP) | ⬜ Not started |
 | 5 | REST API | ⬜ Not started |
@@ -75,17 +75,23 @@ Live tracker with per-slice detail: [`docs/workflow/implementation_plan.md`](doc
 
 ## Getting started
 
-The repository is not yet scaffolded — there is no installable package, API, or dashboard to run
-yet. Once Phase 0's open questions are resolved and the repo is scaffolded (`uv` + `pyproject.toml`,
-`ml/`, `api-services/`, `ui-services/`, `configs/`), this section will cover:
+The repository is scaffolded (`uv` + `pyproject.toml`, `ml/`, `api-services/`, `ui-services/`,
+`configs/`). Training, the inference pipeline, the API, and the dashboard land in Phases 1–6 —
+until then this installs the environment and runs the (currently stub) test suite.
 
 ```bash
-uv sync                                              # install dependencies
-uv run python -m ml.inference.cli --source image ...  # run inference (Phase 4+)
-uv run uvicorn api-services.main:app                   # start the API (Phase 5+)
+uv sync                                                # install dependencies
+cp api-services/config/.env.example api-services/config/.env
+cp ui-services/config/.env.example ui-services/config/.env
+uv run pytest                                          # scaffold smoke test
+
+# once later phases land:
+uv run python -m ml.inference.cli --source image ...   # run inference (Phase 4+)
+uv run uvicorn api-services.main:app                    # start the API (Phase 5+)
 ```
 
-Until then, the PRD and implementation plan are the entry point for anyone picking up this work.
+The PRD and implementation plan remain the entry point for anyone picking up this work —
+`docs/workflow/implementation_plan.md` tracks exactly which phase is active.
 
 ## Known limitations (by design, v1)
 
@@ -100,6 +106,6 @@ Full scope boundaries: PRD §8.
 
 ## License
 
-TBD. The model is planned to use Ultralytics YOLO11, which is licensed AGPL-3.0 — acceptable for
-this internal POC, but a decision is required before any commercial or customer-facing deployment.
+Internal-only (confirmed, PRD §10 / OQ5). The model uses Ultralytics YOLO11, licensed AGPL-3.0 —
+acceptable for internal use; revisit before any commercial or customer-facing deployment.
 See `docs/architecture/TDD.md` §2 and §6.

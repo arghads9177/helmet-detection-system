@@ -216,3 +216,42 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- CV project engineering conventions (helmet-detection-system) ---
+
+# Environments & secrets
+api-services/config/.env
+ui-services/config/.env
+!api-services/config/.env.example
+!ui-services/config/.env.example
+
+# Data — never commit datasets
+data/raw/
+data/interim/
+data/processed/
+!data/**/.gitkeep
+!data/metadata/
+
+# Models — current blessed model is a build artifact
+ml/models/*.pt
+ml/models/*.onnx
+ml/models/*.engine
+!ml/models/.gitkeep
+
+# Artifacts — historical run archive; metadata JSON IS committed
+artifacts/checkpoints/
+artifacts/exported_models/
+artifacts/experiment_results/*/*
+!artifacts/experiment_results/*/metadata.json
+!artifacts/**/.gitkeep
+
+# Outputs & logs
+outputs/
+wandb/
+mlruns/
+
+# Node (ui-services/angular)
+node_modules/
+
+# OS / IDE
+.DS_Store
