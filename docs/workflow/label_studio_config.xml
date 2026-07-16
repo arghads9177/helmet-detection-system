@@ -1,0 +1,15 @@
+<!--
+Label Studio labeling-interface config for the Helmet Detection POC (Slice 1.6).
+Paste this into the project's Labeling Setup > Code view.
+
+Classes match data/metadata/class_names.txt exactly (helmet, no_helmet). Box extent and
+edge-case rulings are documented in docs/workflow/annotation_guidelines.md; read that
+before labeling.
+-->
+<View>
+  <Image name="image" value="$image"/>
+  <RectangleLabels name="label" toName="image">
+    <Label value="helmet" background="#2ECC71"/>
+    <Label value="no_helmet" background="#E74C3C"/>
+  </RectangleLabels>
+</View>

@@ -30,7 +30,7 @@
 | Phase | Name | Status | Gate met? |
 |---|---|---|---|
 | 0 | Problem Definition | 🟢 Gate met — PRD ✅, TDD ✅, blocking OQs resolved, repo scaffolded | ✅ |
-| 1 | Data Engineering | ⚪ Not started — gate met, ready to start | ❌ |
+| 1 | Data Engineering | 🟢 Gate met with 2 explicit waivers (no_helmet floor, negative samples) — Slices 1.1–1.8 complete | ✅ (waived) |
 | **2–3** | **Training & Evaluation** (merged — one notebook) | ⚪ Not started | ❌ |
 | 4 | Inference Pipeline | ⚪ Not started | ❌ |
 | 5 | REST API | ⚪ Not started | ❌ |
@@ -144,6 +144,41 @@ can't be taught what a bare head looks like isn't a POC, it's a `helmet`-class c
 **Environment:** local, **no GPU**. uv venv, OpenCV, Label Studio / CVAT / Roboflow.
 **Entry gate:** Phase 0 gate met.
 
+### Status (2026-07-16)
+
+Slices 1.1–1.5 implemented against the in-hand data: 4 YouTube clips of the IISCO plant
+(`data/raw/videos/`) + downloaded stock images (`data/raw/images/`). **Confirmed by the
+user: there is no factory site access for this POC** — the entire dataset is public/
+downloaded material, not first-party consented factory footage. This is recorded as an
+explicit waiver above (see §Waivers), not an open question. **Before starting Slice 1.6
+(annotation):**
+
+- ✅ **Provenance resolved (as a scope decision, not a compliance clearance).** Every
+  session in `data/metadata/dataset_info.json` is tagged `source_type: youtube_public` or
+  `downloaded_stock`, internal-POC-use-only, no redistribution. This dataset is a proxy for
+  feasibility testing, not evidence about the real deployment site.
+- ⚠️ **Camera-representativeness gap stays open.** None of the 4 clips is fixed-CCTV footage
+  at the real deployment distance/angle (see `docs/reports/recon_findings.md`).
+  Background/crowd heads already measure below the 32 px floor — treat `img_size` 960 as a
+  live option. Real site footage is still needed before Phase 3 results can be presented as
+  evidence for the actual deployment, not just proof the pipeline works.
+- `no_helmet` floor (150 instances, ≥3 sessions): **NOT MET — measured 2026-07-16 via
+  `scripts/validation/check_dataset.py` against the real Slice 1.6 labels.** Actual count:
+  **79** `no_helmet` instances (target 150), from only **2** sessions (`video_1`: 35,
+  `s05_stills_no_helmet`: 44) — `video_2` and `video_3` contributed **zero** labeled
+  `no_helmet` instances. Notably, 2 of the 4 orphan (unlabeled) images are
+  `video_2_frame000360`/`000380` — possibly the bare-headed-subject frames recon (Slice 1.1)
+  described in `video_2`, missed during labeling.
+  **Decision 2026-07-16 (user):** proceed to Slice 1.8 without collecting more data now;
+  mitigate via train-split oversampling of `no_helmet`-containing frames in Phase 2
+  (Slice 2.1), not by collecting more or re-checking the orphan frames. **Caveat, stated
+  plainly because it doesn't fully close the gap:** oversampling/augmentation reshapes the
+  existing 79 instances, it cannot manufacture new sessions or new information — the
+  cross-session generalization risk (TDD §3, only 2 sessions contain `no_helmet`) stays
+  open regardless. Recorded as a waiver below. **Watch `no_helmet` recall specifically at
+  the Phase 3 gate** (PRD §2.1 target ≥ 0.90) — if it underperforms, this is the first place
+  to look.
+
 ### Slice 1.1 — Recon spike: validate the PRD §4 assumptions
 
 **Do this before collecting at scale, and before annotating anything.** Every "Assumed" row in
@@ -253,19 +288,37 @@ to 1.4 and stage more. It is far cheaper now than after training.
 
 ### 🚦 Gate → Phase 2–3
 
-- [ ] PRD §4 updated with **measured** values; `docs/reports/recon_findings.md` written
-- [ ] `docs/workflow/annotation_guidelines.md` written and followed
-- [ ] Validation scripts run **clean**
-- [ ] `data/processed/{train,val,test}/` populated
-- [ ] `data/metadata/` committed: `dataset_info.json`, `class_names.txt`, `statistics.csv`, split lists
-- [ ] `test_split_integrity.py` **passing**
-- [ ] `no_helmet` count meets the Slice 1.2 floor, present across **multiple sessions**
-- [ ] `data/processed/` regenerable from `data/raw/` by re-running scripts
-- [ ] Negative samples present
+- [x] PRD §4 updated with **measured** values; `docs/reports/recon_findings.md` written
+- [x] `docs/workflow/annotation_guidelines.md` written and followed
+- [x] Validation scripts run **clean** (0 malformed/out-of-bounds boxes, 0 corrupt files, 0
+      orphan labels; 4 images excluded from split for missing labels, 1 near-duplicate pair
+      found and confirmed both in `train` — see `data/metadata/statistics.csv`)
+- [x] `data/processed/{train,val,test}/` populated — 94 / 5 / 32 images
+- [x] `data/metadata/` committed: `dataset_info.json`, `class_names.txt`, `statistics.csv`,
+      split lists (`train.txt`, `val.txt`, `test.txt`)
+- [x] `test_split_integrity.py` **passing** (no session spans two splits; every split non-empty)
+- [ ] `no_helmet` count meets the Slice 1.2 floor, present across **multiple sessions** —
+      **NOT MET, explicitly waived by the user 2026-07-16** (79 instances vs. 150 target, 2
+      sessions not 3; see the Waivers table). Mitigation deferred to Phase 2 oversampling;
+      `no_helmet` recall is the number to watch at the Phase 3 gate.
+- [x] `data/processed/` regenerable from `data/raw/` by re-running
+      `scripts/preprocessing/extract_frames.py` → `clean_frames.py` →
+      `scripts/dataset_split/split_by_session.py` (annotations in `data/raw/annotations/`
+      are the one non-regenerable input — they're the human labeling work)
+- [ ] Negative samples present — **gap, not yet closed.** No dedicated empty/all-compliant
+      scenes identified in the current dataset (see `docs/workflow/dataset_plan.md`); the
+      PRD §2.1 false-positive-rate target (≤5%) has no dedicated data to measure against yet.
+
+**Split result:** `video_1` → test (32 images, satisfies the TDD §3 cross-session
+`no_helmet` constraint), `video_2` → val (5 images), `video_3` + both stills pools → train
+(94 images). Achieved ratios (72% / 4% / 24%) deviate substantially from 80/10/10 — an
+inherent consequence of only 5 capture sessions total, documented rather than forced.
 
 **If the gate fails:** insufficient `no_helmet` → loop to 1.4 (stage more). Class-balance or
 leakage failure → **fix here.** Both are invisible in the aggregate metrics the notebook reports
 and will be misdiagnosed as model problems, costing far more than fixing them now.
+**Status here:** proceeding to Phase 2 with the `no_helmet` floor and negative-samples gaps
+explicitly accepted (not silently passed) — see the Waivers table.
 
 ---
 
@@ -715,4 +768,5 @@ accepted. An empty section is the goal.
 
 | Date | Gate | Approved by | Rationale | Risk accepted |
 |---|---|---|---|---|
-| — | — | — | — | — |
+| 2026-07-16 | Phase 1 data source (OQ3/OQ4 in practice) | Argha Dey Sarkar (user) | No factory site access for this POC. Dataset is built entirely from public sources: 4 YouTube clips of the IISCO steel plant (`s01`–`s03`) and downloaded stock images (`s04`, `s05`) — confirmed explicitly by the user 2026-07-16, not first-party consented factory footage as OQ3 originally assumed. | Model is trained/evaluated on public/downloaded data, not the real deployment camera. Phase 3 results measure feasibility on this proxy dataset only — must be re-validated against real site footage before being presented as evidence for the actual deployment (see `docs/reports/recon_findings.md`, `docs/workflow/dataset_plan.md`). Possible YouTube ToS/image-licensing exposure if this data were ever redistributed — internal POC use only, no redistribution (see `data/metadata/dataset_info.json`). |
+| 2026-07-16 | Phase 1 gate — `no_helmet` floor (150 instances, ≥3 sessions) | Argha Dey Sarkar (user) | Measured count is 79 instances from 2 sessions after Slice 1.7 validation. User chose to proceed to Slice 1.8 (split) without collecting more data or re-checking the 2 unlabeled `video_2` frames, planning to mitigate via train-split oversampling/augmentation in Phase 2 instead. | Oversampling/augmentation cannot manufacture new sessions or new `no_helmet` information — the cross-session generalization risk (TDD §3) stays open. `no_helmet` recall (PRD §2.1, target ≥ 0.90) is the number to watch at the Phase 3 gate; if it underperforms, the fix is back here (more data / more sessions), not more training tricks. |

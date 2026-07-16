@@ -1,0 +1,228 @@
+- generic [ref=f12e2]:
+  - generic [ref=f12e3]:
+    - generic [ref=f12e4]:
+      - generic [ref=f12e25]:
+        - list [ref=f12e28]:
+          - listitem [ref=f12e29] [cursor=pointer]:
+            - link "Projects" [ref=f12e30]:
+              - /url: /projects
+          - listitem [ref=f12e32] [cursor=pointer]:
+            - text: /
+            - link "helmet_detection_poc" [ref=f12e61]:
+              - /url: /projects/1
+          - listitem [ref=f12e63]:
+            - text: /
+            - generic [ref=f12e64]: Labeling
+        - link "Settings" [ref=f12e36] [cursor=pointer]:
+          - /url: /projects/1/settings
+      - button [ref=f12e39] [cursor=pointer]
+      - button "Light" [ref=f12e43] [cursor=pointer]
+      - generic "admin@helmet-poc.local" [ref=f12e53] [cursor=pointer]:
+        - generic [ref=f12e55]:
+          - img "ADMIN@HELMET-POC.LOCAL"
+          - generic [ref=f12e56]: AD
+    - generic [ref=f12e67]:
+      - generic [ref=f12e72]:
+        - generic [ref=f12e73]:
+          - button "Columns" [ref=f12e75] [cursor=pointer]:
+            - emphasis [ref=f12e77]
+          - generic [ref=f12e82]:
+            - generic "Comfortable density" [ref=f12e84] [cursor=pointer]:
+              - radio "Comfortable density" [checked] [ref=f12e85]
+            - generic "Compact density" [ref=f12e89] [cursor=pointer]:
+              - radio "Compact density" [ref=f12e90]
+        - generic [ref=f12e94]:
+          - generic [ref=f12e483]:
+            - checkbox "Select all rows" [ref=f12e488] [cursor=pointer]
+            - button "image img" [ref=f12e508] [cursor=pointer]:
+              - generic [ref=f12e509]:
+                - generic [ref=f12e510]: image
+                - generic [ref=f12e511]: img
+          - generic:
+            - generic [ref=f12e129] [cursor=pointer]:
+              - checkbox "Select Task 1" [ref=f12e133]
+              - generic [ref=f12e135]: "0"
+              - img "Data" [ref=f12e139]
+              - button [ref=f12e516]
+            - generic [ref=f12e522] [cursor=pointer]:
+              - checkbox "Select Task 2" [ref=f12e526]
+              - generic [ref=f12e528]: "0"
+              - img "Data" [ref=f12e532]
+              - button [ref=f12e534]
+            - generic [ref=f12e147] [cursor=pointer]:
+              - checkbox "Select Task 3" [ref=f12e151]
+              - generic [ref=f12e153]: "0"
+              - img "Data" [ref=f12e157]
+              - button [ref=f12e539]
+            - generic [ref=f12e165] [cursor=pointer]:
+              - checkbox "Select Task 4" [ref=f12e169]
+              - generic [ref=f12e171]: "0"
+              - img "Data" [ref=f12e175]
+              - button [ref=f12e544]
+            - generic [ref=f12e183] [cursor=pointer]:
+              - checkbox "Select Task 5" [ref=f12e187]
+              - generic [ref=f12e189]: "0"
+              - img "Data" [ref=f12e193]
+              - button [ref=f12e549]
+            - generic [ref=f12e201] [cursor=pointer]:
+              - checkbox "Select Task 6" [ref=f12e205]
+              - generic [ref=f12e207]: "0"
+              - img "Data" [ref=f12e211]
+              - button [ref=f12e554]
+            - generic [ref=f12e219] [cursor=pointer]:
+              - checkbox "Select Task 7" [ref=f12e223]
+              - generic [ref=f12e225]: "0"
+              - img "Data" [ref=f12e229]
+              - button [ref=f12e559]
+            - generic [ref=f12e237] [cursor=pointer]:
+              - checkbox "Select Task 8" [ref=f12e241]
+              - generic [ref=f12e243]: "0"
+              - img "Data" [ref=f12e247]
+              - button [ref=f12e564]
+            - generic [ref=f12e255] [cursor=pointer]:
+              - checkbox "Select Task 9" [ref=f12e259]
+              - generic [ref=f12e261]: "0"
+              - img "Data" [ref=f12e265]
+              - button [ref=f12e569]
+            - generic [ref=f12e273] [cursor=pointer]:
+              - checkbox "Select Task 10" [ref=f12e277]
+              - generic [ref=f12e279]: "0"
+              - img "Data" [ref=f12e283]
+              - button [ref=f12e574]
+            - generic [ref=f12e291] [cursor=pointer]:
+              - checkbox "Select Task 11" [ref=f12e295]
+              - generic [ref=f12e297]: "0"
+              - img "Data" [ref=f12e301]
+              - button [ref=f12e579]
+            - generic [ref=f12e309] [cursor=pointer]:
+              - checkbox "Select Task 12" [ref=f12e313]
+              - generic [ref=f12e315]: "0"
+              - img "Data" [ref=f12e319]
+              - button [ref=f12e584]
+            - generic [ref=f12e327] [cursor=pointer]:
+              - checkbox "Select Task 13" [ref=f12e331]
+              - generic [ref=f12e333]: "0"
+              - img "Data" [ref=f12e589]
+              - button [ref=f12e590]
+            - generic [ref=f12e344] [cursor=pointer]:
+              - checkbox "Select Task 14" [ref=f12e348]
+              - generic [ref=f12e350]: "0"
+              - img "Data" [ref=f12e595]
+              - button [ref=f12e596]
+            - generic [ref=f12e361] [cursor=pointer]:
+              - checkbox "Select Task 15" [ref=f12e365]
+              - generic [ref=f12e367]: "0"
+              - img "Data" [ref=f12e601]
+              - button [ref=f12e602]
+            - generic [ref=f12e378] [cursor=pointer]:
+              - checkbox "Select Task 16" [ref=f12e382]
+              - generic [ref=f12e384]: "0"
+              - img "Data" [ref=f12e607]
+              - button [ref=f12e608]
+            - generic [ref=f12e395] [cursor=pointer]:
+              - checkbox "Select Task 17" [ref=f12e399]
+              - generic [ref=f12e401]: "0"
+              - img "Data" [ref=f12e613]
+              - button [ref=f12e614]
+            - generic [ref=f12e412] [cursor=pointer]:
+              - checkbox "Select Task 18" [ref=f12e416]
+              - generic [ref=f12e418]: "0"
+              - img "Data" [ref=f12e619]
+              - button [ref=f12e620]
+            - generic [ref=f12e429] [cursor=pointer]:
+              - checkbox "Select Task 19" [ref=f12e433]
+              - generic [ref=f12e435]: "0"
+              - img "Data" [ref=f12e625]
+              - button [ref=f12e626]
+            - generic [ref=f12e446] [cursor=pointer]:
+              - checkbox "Select Task 20" [ref=f12e450]
+              - generic [ref=f12e452]: "0"
+              - img "Data" [ref=f12e631]
+              - button [ref=f12e632]
+            - generic [ref=f12e463] [cursor=pointer]:
+              - checkbox "Select Task 21" [ref=f12e467]
+              - generic [ref=f12e469]: "0"
+              - img "Data" [ref=f12e637]
+              - button [ref=f12e638]
+      - generic [ref=f12e644]:
+        - generic [ref=f12e646]:
+          - button "Compare all annotations" [ref=f12e647] [cursor=pointer]:
+            - paragraph [ref=f12e654]: Compare All
+          - button "Create an annotation" [ref=f12e655] [cursor=pointer]
+          - generic [ref=f12e663] [cursor=pointer]:
+            - generic [ref=f12e666]:
+              - img "ADMIN@HELMET-POC.LOCAL"
+              - generic [ref=f12e667]: AD
+            - generic [ref=f12e668]:
+              - generic [ref=f12e669]: admin@he....local
+              - time [ref=f12e671]: seconds ago
+        - generic [ref=f12e684]:
+          - generic [ref=f12e685]:
+            - generic [ref=f12e688]:
+              - generic [ref=f12e689]:
+                - generic [ref=f12e690]:
+                  - img "image" [ref=f12e693]
+                  - generic [ref=f12e699]:
+                    - button "move-tool" [ref=f12e700] [cursor=pointer]
+                    - button "pan" [ref=f12e706] [cursor=pointer]
+                    - button "zoom-in" [ref=f12e716] [cursor=pointer]
+                    - generic [ref=f12e722] [cursor=pointer]:
+                      - generic "Zoom presets (click to see options)" [ref=f12e723]
+                      - generic [ref=f12e730]:
+                        - generic [ref=f12e732]:
+                          - generic [ref=f12e733]: Zoom to fit
+                          - generic [ref=f12e734]: shift1
+                        - generic [ref=f12e736]:
+                          - generic [ref=f12e737]: Zoom to actual size
+                          - generic [ref=f12e738]: shift2
+                    - button "zoom-out" [ref=f12e739] [cursor=pointer]
+                - generic [ref=f12e744]:
+                  - generic [ref=f12e745] [cursor=pointer]:
+                    - generic [ref=f12e746]: helmet
+                    - generic [ref=f12e747]: "1"
+                  - generic [ref=f12e748] [cursor=pointer]:
+                    - generic [ref=f12e749]: no_helmet
+                    - generic [ref=f12e750]: "2"
+              - generic:
+                - img "Arrow Marker"
+            - generic [ref=f12e751]:
+              - generic [ref=f12e752]:
+                - generic [ref=f12e753]: "#2"
+                - generic [ref=f12e756]:
+                  - generic [ref=f12e757]:
+                    - button "Undo" [disabled] [ref=f12e759]
+                    - button "Redo" [disabled] [ref=f12e764]
+                    - button "Reset" [disabled] [ref=f12e769]
+                  - button "Settings" [ref=f12e774] [cursor=pointer]
+              - button "Submit current annotation" [ref=f12e783] [cursor=pointer]:
+                - generic [ref=f12e784]: Submit
+          - generic:
+            - generic [ref=f12e796]:
+              - generic [ref=f12e797]:
+                - generic [ref=f12e798]: Info
+                - generic [ref=f12e802]: History
+              - generic [ref=f12e814]:
+                - generic [ref=f12e815]: View region details
+                - generic [ref=f12e816]: Select a region to view its properties, metadata and available actions
+            - generic [ref=f12e830]:
+              - generic [ref=f12e831]:
+                - generic [ref=f12e832]: Regions
+                - generic [ref=f12e836]: Relations
+              - generic [ref=f12e842]:
+                - generic [ref=f12e843]:
+                  - button "Manual" [ref=f12e844] [cursor=pointer]:
+                    - emphasis [ref=f12e845]
+                  - button "By Time" [ref=f12e850] [cursor=pointer]:
+                    - emphasis [ref=f12e851]
+                    - emphasis [ref=f12e855]
+                  - button "Hide all regions" [disabled] [ref=f12e859]
+                - generic [ref=f12e864]:
+                  - generic [ref=f12e875]:
+                    - generic [ref=f12e876]: Labeled regions will appear here
+                    - generic [ref=f12e877]: Start labeling and track your resultsusing this panel
+                  - link "Learn more" [ref=f12e880] [cursor=pointer]:
+                    - /url: https://labelstud.io/guide/labeling
+        - generic:
+          - region "Notifications (F8)"
+  - generic:
+    - region "Notifications (F8)"

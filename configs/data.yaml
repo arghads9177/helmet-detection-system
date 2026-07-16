@@ -8,6 +8,11 @@ metadata_dir: data/metadata
 
 classes_file: data/metadata/class_names.txt
 
+# Frame extraction rate (scripts/preprocessing/extract_frames.py). Consecutive frames at
+# native camera FPS are near-duplicates -- sample low to avoid inflating the dataset and
+# leaking near-identical frames across splits (TDD SS3, R4).
+frame_sample_fps: 1.5
+
 split:
   train: 0.8
   val: 0.1

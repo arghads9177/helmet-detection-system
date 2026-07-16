@@ -1,0 +1,115 @@
+- generic [active] [ref=f8e1]:
+  - generic [ref=f8e2]:
+    - generic [ref=f8e3]:
+      - generic [ref=f8e4]:
+        - list [ref=f8e28]:
+          - listitem [ref=f8e29] [cursor=pointer]:
+            - link "Projects" [ref=f8e30]:
+              - /url: /projects
+          - listitem [ref=f8e81] [cursor=pointer]:
+            - text: /
+            - link "helmet_detection_poc" [ref=f8e82]:
+              - /url: /projects/1
+          - listitem [ref=f8e84] [cursor=pointer]:
+            - text: /
+            - link "Settings" [ref=f8e85]:
+              - /url: /projects/1/settings
+          - listitem [ref=f8e87]:
+            - text: /
+            - generic [ref=f8e88]: Cloud Storage
+        - button [ref=f8e39] [cursor=pointer]
+        - button "Light" [ref=f8e43] [cursor=pointer]
+        - generic "admin@helmet-poc.local" [ref=f8e89] [cursor=pointer]:
+          - generic [ref=f8e55]:
+            - img "ADMIN@HELMET-POC.LOCAL"
+            - generic [ref=f8e90]: AD
+      - generic [ref=f8e59]:
+        - list [ref=f8e61]:
+          - listitem [ref=f8e62]:
+            - link "General" [ref=f8e63] [cursor=pointer]:
+              - /url: /projects/1/settings/
+          - listitem [ref=f8e64]:
+            - link "Labeling Interface" [ref=f8e65] [cursor=pointer]:
+              - /url: /projects/1/settings/labeling
+          - listitem [ref=f8e66]:
+            - link "Annotation" [ref=f8e67] [cursor=pointer]:
+              - /url: /projects/1/settings/annotation
+          - listitem [ref=f8e68]:
+            - link "Model" [ref=f8e69] [cursor=pointer]:
+              - /url: /projects/1/settings/ml
+          - listitem [ref=f8e70]:
+            - link "Predictions" [ref=f8e71] [cursor=pointer]:
+              - /url: /projects/1/settings/predictions
+          - listitem [ref=f8e72]:
+            - link "Cloud Storage" [ref=f8e73] [cursor=pointer]:
+              - /url: /projects/1/settings/storage
+          - listitem [ref=f8e74]:
+            - link "Webhooks" [ref=f8e75] [cursor=pointer]:
+              - /url: /projects/1/settings/webhooks
+          - listitem [ref=f8e76]:
+            - link "Danger Zone" [ref=f8e77] [cursor=pointer]:
+              - /url: /projects/1/settings/danger-zone
+        - generic [ref=f8e79]:
+          - heading "Cloud Storage" [level=2] [ref=f8e80]
+          - generic [ref=f8e93]:
+            - heading "Add your first cloud storage" [level=2] [ref=f8e99]
+            - paragraph [ref=f8e100]: Use cloud or database storage as the source for your labeling tasks or the target of your completed annotations.
+            - generic [ref=f8e102]:
+              - generic "Amazon S3" [ref=f8e103]
+              - generic "Google Cloud Storage" [ref=f8e118]
+              - generic "Azure Blob Storage" [ref=f8e124]
+              - generic "Redis Storage" [ref=f8e130]
+            - generic [ref=f8e143]:
+              - button "Add Source Storage" [ref=f8e144] [cursor=pointer]
+              - button "Add Target Storage" [ref=f8e146] [cursor=pointer]
+            - paragraph [ref=f8e149]:
+              - link "Learn more about cloud storage (opens in new window)" [ref=f8e150] [cursor=pointer]:
+                - /url: https://docs.humansignal.com/guide/storage
+                - text: Learn more
+    - generic:
+      - region "Notifications (F8)"
+  - generic:
+    - generic:
+      - region "Notifications (F8)"
+  - generic [ref=f8e157]:
+    - generic [ref=f8e158]:
+      - generic [ref=f8e159]:
+        - heading "Connect Source Storage" [level=2] [ref=f8e160]
+        - generic [ref=f8e161]: Import your data from cloud storage providers
+      - button [ref=f8e162] [cursor=pointer]
+    - generic [ref=f8e167]:
+      - generic [ref=f8e168]:
+        - generic [ref=f8e169]: Select Provider
+        - generic [ref=f8e170]: Configure Connection
+        - generic [ref=f8e171]: Import Settings & Preview
+        - generic [ref=f8e172]: Review & Confirm
+      - generic [ref=f8e176]:
+        - img "Line" [ref=f8e329] [cursor=pointer]
+        - img "Line" [ref=f8e362] [cursor=pointer]
+        - img "Line" [ref=f8e1058] [cursor=pointer]
+        - generic [ref=f8e186]: "4"
+    - generic [ref=f8e1060]:
+      - generic [ref=f8e1061]:
+        - heading "Ready to Connect" [level=2] [ref=f8e1062]
+        - paragraph [ref=f8e1063]: Review your connection details and confirm to start importing
+      - generic [ref=f8e1064]:
+        - generic [ref=f8e1065]:
+          - paragraph [ref=f8e1066]: Provider
+          - paragraph [ref=f8e1067]: Local Files
+        - generic [ref=f8e1068]:
+          - paragraph [ref=f8e1069]: Storage Location
+          - paragraph [ref=f8e1070]: Not specified
+        - generic [ref=f8e1071]:
+          - paragraph [ref=f8e1072]: Files to import
+          - paragraph [ref=f8e1073]: 89 files
+        - generic [ref=f8e1074]:
+          - paragraph [ref=f8e1075]: Total size
+          - paragraph [ref=f8e1076]: 20.63 MB
+      - generic [ref=f8e1077]:
+        - heading "Import Process" [level=3] [ref=f8e1078]
+        - paragraph [ref=f8e1079]: Files will be imported in the background. You can continue working while the import is in progress.
+    - generic [ref=f8e323]:
+      - button "Previous" [ref=f8e324] [cursor=pointer]
+      - generic [ref=f8e326]:
+        - button "Save & Sync" [disabled] [ref=f8e1080]
+        - button "Save" [ref=f8e1081] [cursor=pointer]

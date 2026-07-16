@@ -1,0 +1,9 @@
+- generic [ref=f7e2]:
+  - generic [ref=f7e4]:
+    - list [ref=f7e28]:
+      - listitem:
+        - generic: Projects
+    - button [ref=f7e31] [cursor=pointer]
+    - button "Light" [ref=f7e35] [cursor=pointer]
+  - generic:
+    - region "Notifications (F8)"

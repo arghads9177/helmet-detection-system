@@ -1,0 +1,81 @@
+- generic [ref=f8e2]:
+  - generic [ref=f8e3]:
+    - generic [ref=f8e4]:
+      - list [ref=f8e28]:
+        - listitem [ref=f8e29] [cursor=pointer]:
+          - link "Projects" [ref=f8e30]:
+            - /url: /projects
+        - listitem [ref=f8e81] [cursor=pointer]:
+          - text: /
+          - link "helmet_detection_poc" [ref=f8e82]:
+            - /url: /projects/1
+        - listitem [ref=f8e84] [cursor=pointer]:
+          - text: /
+          - link "Settings" [ref=f8e85]:
+            - /url: /projects/1/settings
+        - listitem [ref=f8e87]:
+          - text: /
+          - generic [ref=f8e88]: Cloud Storage
+      - button [ref=f8e39] [cursor=pointer]
+      - button "Light" [ref=f8e43] [cursor=pointer]
+      - generic "admin@helmet-poc.local" [ref=f8e89] [cursor=pointer]:
+        - generic [ref=f8e55]:
+          - img "ADMIN@HELMET-POC.LOCAL"
+          - generic [ref=f8e90]: AD
+    - generic [ref=f8e59]:
+      - list [ref=f8e61]:
+        - listitem [ref=f8e62]:
+          - link "General" [ref=f8e63] [cursor=pointer]:
+            - /url: /projects/1/settings/
+        - listitem [ref=f8e64]:
+          - link "Labeling Interface" [ref=f8e65] [cursor=pointer]:
+            - /url: /projects/1/settings/labeling
+        - listitem [ref=f8e66]:
+          - link "Annotation" [ref=f8e67] [cursor=pointer]:
+            - /url: /projects/1/settings/annotation
+        - listitem [ref=f8e68]:
+          - link "Model" [ref=f8e69] [cursor=pointer]:
+            - /url: /projects/1/settings/ml
+        - listitem [ref=f8e70]:
+          - link "Predictions" [ref=f8e71] [cursor=pointer]:
+            - /url: /projects/1/settings/predictions
+        - listitem [ref=f8e72]:
+          - link "Cloud Storage" [ref=f8e73] [cursor=pointer]:
+            - /url: /projects/1/settings/storage
+        - listitem [ref=f8e74]:
+          - link "Webhooks" [ref=f8e75] [cursor=pointer]:
+            - /url: /projects/1/settings/webhooks
+        - listitem [ref=f8e76]:
+          - link "Danger Zone" [ref=f8e77] [cursor=pointer]:
+            - /url: /projects/1/settings/danger-zone
+      - generic [ref=f8e79]:
+        - heading "Cloud Storage" [level=2] [ref=f8e80]
+        - paragraph [ref=f8e1083]: Use cloud or database storage as the source for your labeling tasks or the target of your completed annotations.
+        - generic [ref=f8e1085]:
+          - generic [ref=f8e1086]:
+            - generic [ref=f8e1087]: Source Cloud Storage
+            - button "Add Source Storage" [ref=f8e1089] [cursor=pointer]
+            - generic [ref=f8e1091]:
+              - generic [ref=f8e1092]:
+                - generic [ref=f8e1093]: raw_images
+                - button "Storage options" [ref=f8e1095] [cursor=pointer]
+              - generic [ref=f8e1099]:
+                - generic [ref=f8e1101]:
+                  - term [ref=f8e1102]: Type
+                  - definition [ref=f8e1103]: Local files
+                  - term [ref=f8e1104]: Path
+                  - definition [ref=f8e1105]: /media/argha-ds/F9AD-D6C3/softmeets/cv-poc/helmet-detection-system/data/raw/images
+                  - term [ref=f8e1106]: Status
+                  - definition [ref=f8e1109]: Completed
+                  - term [ref=f8e1110]: Tasks
+                  - definition [ref=f8e1113]:
+                    - text: "89"
+                    - generic [ref=f8e1114]: (89 new)
+                  - term [ref=f8e1115]: Last Sync
+                  - definition [ref=f8e1116]: July 16, 2026 ∙ 14:44:09
+                - button "Sync Storage" [ref=f8e1119] [cursor=pointer]
+          - generic [ref=f8e1121]:
+            - generic [ref=f8e1122]: Target Cloud Storage
+            - button "Add Target Storage" [ref=f8e1124] [cursor=pointer]
+  - generic:
+    - region "Notifications (F8)"

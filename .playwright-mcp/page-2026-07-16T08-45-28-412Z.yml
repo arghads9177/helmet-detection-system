@@ -1,0 +1,128 @@
+- generic [ref=f8e1]:
+  - generic [ref=f8e2]:
+    - generic [ref=f8e3]:
+      - generic [ref=f8e4]:
+        - list [ref=f8e28]:
+          - listitem [ref=f8e29] [cursor=pointer]:
+            - link "Projects" [ref=f8e30]:
+              - /url: /projects
+          - listitem [ref=f8e81] [cursor=pointer]:
+            - text: /
+            - link "helmet_detection_poc" [ref=f8e82]:
+              - /url: /projects/1
+          - listitem [ref=f8e84] [cursor=pointer]:
+            - text: /
+            - link "Settings" [ref=f8e85]:
+              - /url: /projects/1/settings
+          - listitem [ref=f8e87]:
+            - text: /
+            - generic [ref=f8e88]: Cloud Storage
+        - button [ref=f8e39] [cursor=pointer]
+        - button "Light" [ref=f8e43] [cursor=pointer]
+        - generic "admin@helmet-poc.local" [ref=f8e89] [cursor=pointer]:
+          - generic [ref=f8e55]:
+            - img "ADMIN@HELMET-POC.LOCAL"
+            - generic [ref=f8e90]: AD
+      - generic [ref=f8e59]:
+        - list [ref=f8e61]:
+          - listitem [ref=f8e62]:
+            - link "General" [ref=f8e63] [cursor=pointer]:
+              - /url: /projects/1/settings/
+          - listitem [ref=f8e64]:
+            - link "Labeling Interface" [ref=f8e65] [cursor=pointer]:
+              - /url: /projects/1/settings/labeling
+          - listitem [ref=f8e66]:
+            - link "Annotation" [ref=f8e67] [cursor=pointer]:
+              - /url: /projects/1/settings/annotation
+          - listitem [ref=f8e68]:
+            - link "Model" [ref=f8e69] [cursor=pointer]:
+              - /url: /projects/1/settings/ml
+          - listitem [ref=f8e70]:
+            - link "Predictions" [ref=f8e71] [cursor=pointer]:
+              - /url: /projects/1/settings/predictions
+          - listitem [ref=f8e72]:
+            - link "Cloud Storage" [ref=f8e73] [cursor=pointer]:
+              - /url: /projects/1/settings/storage
+          - listitem [ref=f8e74]:
+            - link "Webhooks" [ref=f8e75] [cursor=pointer]:
+              - /url: /projects/1/settings/webhooks
+          - listitem [ref=f8e76]:
+            - link "Danger Zone" [ref=f8e77] [cursor=pointer]:
+              - /url: /projects/1/settings/danger-zone
+        - generic [ref=f8e79]:
+          - heading "Cloud Storage" [level=2] [ref=f8e80]
+          - generic [ref=f8e93]:
+            - heading "Add your first cloud storage" [level=2] [ref=f8e99]
+            - paragraph [ref=f8e100]: Use cloud or database storage as the source for your labeling tasks or the target of your completed annotations.
+            - generic [ref=f8e102]:
+              - generic "Amazon S3" [ref=f8e103]
+              - generic "Google Cloud Storage" [ref=f8e118]
+              - generic "Azure Blob Storage" [ref=f8e124]
+              - generic "Redis Storage" [ref=f8e130]
+            - generic [ref=f8e143]:
+              - button "Add Source Storage" [active] [ref=f8e144] [cursor=pointer]
+              - button "Add Target Storage" [ref=f8e146] [cursor=pointer]
+            - paragraph [ref=f8e149]:
+              - link "Learn more about cloud storage (opens in new window)" [ref=f8e150] [cursor=pointer]:
+                - /url: https://docs.humansignal.com/guide/storage
+                - text: Learn more
+    - generic:
+      - region "Notifications (F8)"
+  - generic:
+    - generic:
+      - region "Notifications (F8)"
+  - generic [ref=f8e157]:
+    - generic [ref=f8e158]:
+      - generic [ref=f8e159]:
+        - heading "Connect Source Storage" [level=2] [ref=f8e160]
+        - generic [ref=f8e161]: Import your data from cloud storage providers
+      - button [ref=f8e162] [cursor=pointer]
+    - generic [ref=f8e167]:
+      - generic [ref=f8e168]:
+        - generic [ref=f8e169]: Select Provider
+        - generic [ref=f8e170]: Configure Connection
+        - generic [ref=f8e171]: Import Settings & Preview
+        - generic [ref=f8e172]: Review & Confirm
+      - generic [ref=f8e176]:
+        - generic [ref=f8e177]: "1"
+        - generic [ref=f8e180]: "2"
+        - generic [ref=f8e183]: "3"
+        - generic [ref=f8e186]: "4"
+    - generic [ref=f8e190]:
+      - generic [ref=f8e191]:
+        - heading "Choose your cloud storage provider" [level=2] [ref=f8e192]
+        - paragraph [ref=f8e193]: Select the cloud storage service where your data is stored
+      - generic [ref=f8e195]:
+        - generic [ref=f8e197]:
+          - generic [ref=f8e198]: Storage Provider
+          - text: Required
+        - generic [ref=f8e200]:
+          - button [pressed] [ref=f8e201] [cursor=pointer]:
+            - heading "Amazon S3" [level=3] [ref=f8e217]
+          - button [ref=f8e218] [cursor=pointer]:
+            - heading "Google Cloud Storage" [level=3] [ref=f8e225]
+          - button [ref=f8e226] [cursor=pointer]:
+            - heading "Azure Blob Storage" [level=3] [ref=f8e233]
+          - button [ref=f8e234] [cursor=pointer]:
+            - heading "Redis Storage" [level=3] [ref=f8e246]
+          - button "Amazon S3 with IAM Role Enterprise" [disabled] [ref=f8e247] [cursor=pointer]:
+            - generic [ref=f8e262]:
+              - heading "Amazon S3 with IAM Role" [level=3] [ref=f8e263]
+              - generic [ref=f8e264]: Enterprise
+          - button "Google Cloud Storage (WIF Auth) Enterprise" [disabled] [ref=f8e272] [cursor=pointer]:
+            - generic [ref=f8e278]:
+              - heading "Google Cloud Storage (WIF Auth)" [level=3] [ref=f8e279]
+              - generic [ref=f8e280]: Enterprise
+          - button "Azure Blob Storage with Service Principal Enterprise" [disabled] [ref=f8e288] [cursor=pointer]:
+            - generic [ref=f8e294]:
+              - heading "Azure Blob Storage with Service Principal" [level=3] [ref=f8e295]
+              - generic [ref=f8e296]: Enterprise
+          - button "Databricks Files (UC Volumes) Enterprise" [disabled] [ref=f8e304] [cursor=pointer]:
+            - generic [ref=f8e307]:
+              - heading "Databricks Files (UC Volumes)" [level=3] [ref=f8e308]
+              - generic [ref=f8e309]: Enterprise
+          - button [ref=f8e317] [cursor=pointer]:
+            - heading "Local Files" [level=3] [ref=f8e321]
+    - generic [ref=f8e323]:
+      - button "Previous" [disabled] [ref=f8e324]
+      - button "Next" [ref=f8e327] [cursor=pointer]

@@ -1,0 +1,5 @@
+data/interim/cleaned/video_2/video_2_frame000180.jpg
+data/interim/cleaned/video_2/video_2_frame000200.jpg
+data/interim/cleaned/video_2/video_2_frame000220.jpg
+data/interim/cleaned/video_2/video_2_frame000260.jpg
+data/interim/cleaned/video_2/video_2_frame000280.jpg

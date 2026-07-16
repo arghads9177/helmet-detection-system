@@ -1,0 +1,234 @@
+- generic [ref=f9e2]:
+  - generic [ref=f9e3]:
+    - generic [ref=f9e4]:
+      - generic [ref=f9e25]:
+        - list [ref=f9e28]:
+          - listitem [ref=f9e29] [cursor=pointer]:
+            - link "Projects" [ref=f9e30]:
+              - /url: /projects
+          - listitem [ref=f9e32]:
+            - text: /
+            - generic [ref=f9e33]: helmet_detection_poc
+        - link "Settings" [ref=f9e36] [cursor=pointer]:
+          - /url: /projects/1/settings
+      - button [ref=f9e39] [cursor=pointer]
+      - button "Light" [ref=f9e43] [cursor=pointer]
+      - generic "admin@helmet-poc.local" [ref=f9e53] [cursor=pointer]:
+        - generic [ref=f9e55]:
+          - img "ADMIN@HELMET-POC.LOCAL"
+          - generic [ref=f9e56]: AD
+    - generic [ref=f9e63]:
+      - generic [ref=f9e64]:
+        - tablist [ref=f9e65]:
+          - button [ref=f9e67]:
+            - generic [ref=f9e68]:
+              - tab "Default" [selected] [ref=f9e69]
+              - button "Tab options" [ref=f9e73] [cursor=pointer]
+          - button "Open New Tab" [ref=f9e77] [cursor=pointer]
+        - generic [ref=f9e84]:
+          - generic [ref=f9e85]: "Tasks: 136 / 136"
+          - generic [ref=f9e86]: "Submitted annotations: 0"
+          - generic [ref=f9e87]: "Predictions: 0"
+      - generic [ref=f9e88]:
+        - generic [ref=f9e89]:
+          - button "Tasks Actions" [disabled] [ref=f9e90]:
+            - generic [ref=f9e91]: Actions
+            - emphasis [ref=f9e92]
+          - button "Columns" [ref=f9e95] [cursor=pointer]:
+            - emphasis [ref=f9e97]
+          - button "Filters" [ref=f9e101] [cursor=pointer]:
+            - emphasis [ref=f9e103]
+          - generic [ref=f9e108]:
+            - button "Order by" [ref=f9e109] [cursor=pointer]
+            - button "Sort descending" [disabled] [ref=f9e111]
+          - generic [ref=f9e116]:
+            - button "Label All Tasks" [ref=f9e117] [cursor=pointer]
+            - button "Toggle open" [ref=f9e119] [cursor=pointer]
+        - generic [ref=f9e123]:
+          - button "Refresh data" [ref=f9e124] [cursor=pointer]
+          - button "import button" [ref=f9e131] [cursor=pointer]:
+            - generic [ref=f9e132]: Import
+          - button "export button" [ref=f9e133] [cursor=pointer]:
+            - generic [ref=f9e134]: Export
+          - generic [ref=f9e136]:
+            - generic "Comfortable density" [ref=f9e138] [cursor=pointer]:
+              - radio "Comfortable density" [checked] [ref=f9e139]
+            - generic "Compact density" [ref=f9e143] [cursor=pointer]:
+              - radio "Compact density" [ref=f9e144]
+          - generic [ref=f9e148]:
+            - generic "Switch to list view" [ref=f9e150] [cursor=pointer]:
+              - radio "Switch to list view" [checked] [ref=f9e151]
+            - generic "Switch to grid view" [ref=f9e155] [cursor=pointer]:
+              - radio "Switch to grid view" [ref=f9e156]
+      - generic [ref=f9e162]:
+        - generic [ref=f9e163]:
+          - checkbox "Select all rows" [ref=f9e168] [cursor=pointer]
+          - generic [ref=f9e170]: ID
+          - generic [ref=f9e180]: Completed
+          - generic [ref=f9e226]: Annotated by
+          - button "data str" [ref=f9e240] [cursor=pointer]:
+            - generic [ref=f9e241]:
+              - generic [ref=f9e242]: data
+              - generic [ref=f9e243]: str
+        - generic [ref=f9e249] [cursor=pointer]:
+          - checkbox "Select Task 1" [ref=f9e253]
+          - generic [ref=f9e255]: "1"
+          - generic [ref=f9e259]: "0"
+          - generic [ref=f9e261]: "0"
+          - generic [ref=f9e263]: "0"
+          - generic [ref=f9e267]: /data/local-files/?d=data/raw/images/.gitkeep
+          - button [ref=f9e271]
+        - generic [ref=f9e277] [cursor=pointer]:
+          - checkbox "Select Task 2" [ref=f9e281]
+          - generic [ref=f9e283]: "2"
+          - generic [ref=f9e287]: "0"
+          - generic [ref=f9e289]: "0"
+          - generic [ref=f9e291]: "0"
+          - generic [ref=f9e295]: /data/local-files/?d=data/raw/images/helmet_1.jpeg
+          - button [ref=f9e299]
+        - generic [ref=f9e305] [cursor=pointer]:
+          - checkbox "Select Task 3" [ref=f9e309]
+          - generic [ref=f9e311]: "3"
+          - generic [ref=f9e315]: "0"
+          - generic [ref=f9e317]: "0"
+          - generic [ref=f9e319]: "0"
+          - generic [ref=f9e323]: /data/local-files/?d=data/raw/images/helmet_10.jpeg
+          - button [ref=f9e327]
+        - generic [ref=f9e333] [cursor=pointer]:
+          - checkbox "Select Task 4" [ref=f9e337]
+          - generic [ref=f9e339]: "4"
+          - generic [ref=f9e343]: "0"
+          - generic [ref=f9e345]: "0"
+          - generic [ref=f9e347]: "0"
+          - generic [ref=f9e351]: /data/local-files/?d=data/raw/images/helmet_11.jpeg
+          - button [ref=f9e355]
+        - generic [ref=f9e361] [cursor=pointer]:
+          - checkbox "Select Task 5" [ref=f9e365]
+          - generic [ref=f9e367]: "5"
+          - generic [ref=f9e371]: "0"
+          - generic [ref=f9e373]: "0"
+          - generic [ref=f9e375]: "0"
+          - generic [ref=f9e379]: /data/local-files/?d=data/raw/images/helmet_12.jpeg
+          - button [ref=f9e383]
+        - generic [ref=f9e389] [cursor=pointer]:
+          - checkbox "Select Task 6" [ref=f9e393]
+          - generic [ref=f9e395]: "6"
+          - generic [ref=f9e399]: "0"
+          - generic [ref=f9e401]: "0"
+          - generic [ref=f9e403]: "0"
+          - generic [ref=f9e407]: /data/local-files/?d=data/raw/images/helmet_13.jpeg
+          - button [ref=f9e411]
+        - generic [ref=f9e417] [cursor=pointer]:
+          - checkbox "Select Task 7" [ref=f9e421]
+          - generic [ref=f9e423]: "7"
+          - generic [ref=f9e427]: "0"
+          - generic [ref=f9e429]: "0"
+          - generic [ref=f9e431]: "0"
+          - generic [ref=f9e435]: /data/local-files/?d=data/raw/images/helmet_14.jpeg
+          - button [ref=f9e439]
+        - generic [ref=f9e445] [cursor=pointer]:
+          - checkbox "Select Task 8" [ref=f9e449]
+          - generic [ref=f9e451]: "8"
+          - generic [ref=f9e455]: "0"
+          - generic [ref=f9e457]: "0"
+          - generic [ref=f9e459]: "0"
+          - generic [ref=f9e463]: /data/local-files/?d=data/raw/images/helmet_15.jpeg
+          - button [ref=f9e467]
+        - generic [ref=f9e473] [cursor=pointer]:
+          - checkbox "Select Task 9" [ref=f9e477]
+          - generic [ref=f9e479]: "9"
+          - generic [ref=f9e483]: "0"
+          - generic [ref=f9e485]: "0"
+          - generic [ref=f9e487]: "0"
+          - generic [ref=f9e491]: /data/local-files/?d=data/raw/images/helmet_16.jpeg
+          - button [ref=f9e495]
+        - generic [ref=f9e501] [cursor=pointer]:
+          - checkbox "Select Task 10" [ref=f9e505]
+          - generic [ref=f9e507]: "10"
+          - generic [ref=f9e511]: "0"
+          - generic [ref=f9e513]: "0"
+          - generic [ref=f9e515]: "0"
+          - generic [ref=f9e519]: /data/local-files/?d=data/raw/images/helmet_17.jpeg
+          - button [ref=f9e523]
+        - generic [ref=f9e529] [cursor=pointer]:
+          - checkbox "Select Task 11" [ref=f9e533]
+          - generic [ref=f9e535]: "11"
+          - generic [ref=f9e539]: "0"
+          - generic [ref=f9e541]: "0"
+          - generic [ref=f9e543]: "0"
+          - generic [ref=f9e547]: /data/local-files/?d=data/raw/images/helmet_18.jpeg
+          - button [ref=f9e551]
+        - generic [ref=f9e557] [cursor=pointer]:
+          - checkbox "Select Task 12" [ref=f9e561]
+          - generic [ref=f9e563]: "12"
+          - generic [ref=f9e567]: "0"
+          - generic [ref=f9e569]: "0"
+          - generic [ref=f9e571]: "0"
+          - generic [ref=f9e575]: /data/local-files/?d=data/raw/images/helmet_19.jpeg
+          - button [ref=f9e579]
+        - generic [ref=f9e585] [cursor=pointer]:
+          - checkbox "Select Task 13" [ref=f9e589]
+          - generic [ref=f9e591]: "13"
+          - generic [ref=f9e595]: "0"
+          - generic [ref=f9e597]: "0"
+          - generic [ref=f9e599]: "0"
+          - generic [ref=f9e603]: /data/local-files/?d=data/raw/images/helmet_2.jpeg
+          - button [ref=f9e607]
+        - generic [ref=f9e613] [cursor=pointer]:
+          - checkbox "Select Task 14" [ref=f9e617]
+          - generic [ref=f9e619]: "14"
+          - generic [ref=f9e623]: "0"
+          - generic [ref=f9e625]: "0"
+          - generic [ref=f9e627]: "0"
+          - generic [ref=f9e631]: /data/local-files/?d=data/raw/images/helmet_20.jpeg
+          - button [ref=f9e635]
+        - generic [ref=f9e641] [cursor=pointer]:
+          - checkbox "Select Task 15" [ref=f9e645]
+          - generic [ref=f9e647]: "15"
+          - generic [ref=f9e651]: "0"
+          - generic [ref=f9e653]: "0"
+          - generic [ref=f9e655]: "0"
+          - generic [ref=f9e659]: /data/local-files/?d=data/raw/images/helmet_21.jpeg
+          - button [ref=f9e663]
+        - generic [ref=f9e669] [cursor=pointer]:
+          - checkbox "Select Task 16" [ref=f9e673]
+          - generic [ref=f9e675]: "16"
+          - generic [ref=f9e679]: "0"
+          - generic [ref=f9e681]: "0"
+          - generic [ref=f9e683]: "0"
+          - generic [ref=f9e687]: /data/local-files/?d=data/raw/images/helmet_22.jpeg
+          - button [ref=f9e691]
+        - generic [ref=f9e697] [cursor=pointer]:
+          - checkbox "Select Task 17" [ref=f9e701]
+          - generic [ref=f9e703]: "17"
+          - generic [ref=f9e707]: "0"
+          - generic [ref=f9e709]: "0"
+          - generic [ref=f9e711]: "0"
+          - generic [ref=f9e715]: /data/local-files/?d=data/raw/images/helmet_23.jpeg
+          - button [ref=f9e719]
+        - generic [ref=f9e725] [cursor=pointer]:
+          - checkbox "Select Task 18" [ref=f9e729]
+          - generic [ref=f9e731]: "18"
+          - generic [ref=f9e735]: "0"
+          - generic [ref=f9e737]: "0"
+          - generic [ref=f9e739]: "0"
+          - generic [ref=f9e743]: /data/local-files/?d=data/raw/images/helmet_24.jpeg
+          - button [ref=f9e747]
+        - generic [ref=f9e753] [cursor=pointer]:
+          - checkbox "Select Task 19" [ref=f9e757]
+          - generic [ref=f9e759]: "19"
+          - generic [ref=f9e763]: "0"
+          - generic [ref=f9e765]: "0"
+          - generic [ref=f9e767]: "0"
+          - generic [ref=f9e771]: /data/local-files/?d=data/raw/images/helmet_25.jpeg
+          - button [ref=f9e775]
+        - generic [ref=f9e781] [cursor=pointer]:
+          - checkbox "Select Task 20" [ref=f9e785]
+          - generic [ref=f9e787]: "20"
+          - generic [ref=f9e791]: "0"
+          - generic [ref=f9e793]: "0"
+          - generic [ref=f9e795]: "0"
+          - generic [ref=f9e799]: /data/local-files/?d=data/raw/images/helmet_26.jpeg
+          - button [ref=f9e803]
+  - generic:
+    - region "Notifications (F8)"

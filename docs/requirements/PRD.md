@@ -90,26 +90,30 @@ this with time-window deduplication (§8), not tracking.
 | EHS / plant management | Violation log + counts for audit reporting | Weekly / per audit |
 | ML engineer (this project) | Eval reports, error analysis | Per training iteration |
 
-**Environment (to be confirmed against the actual site — see §10):**
+**Environment (updated 2026-07-16 from Slice 1.1 recon — see `docs/reports/recon_findings.md`):**
 
 | Requirement | Value | Confidence |
 |---|---|---|
 | Object classes | `helmet`, `no_helmet` | Decided |
-| Camera type | Fixed CCTV assumed; mobile phone camera for demo | **Assumed** |
-| Camera resolution | Unknown — assumed 1080p | **Assumed** |
-| Camera angle | Unknown — assumed elevated/eye-level, not top-down | **Assumed** |
-| Indoor / Outdoor | Indoor factory floor | Assumed |
-| Day / Night | Daytime + artificial lighting; no IR handling in v1 | Assumed |
-| Detection distance | Unknown — assumed 3–15 m | **Assumed** |
-| Object size (px) | Unknown — heads assumed ≥ 32×32 px at max distance | **Assumed** |
+| Camera type | **Observed: none of the 4 sample clips is fixed CCTV** — mix of broadcast pan, handheld, and phone-selfie footage | **Partially observed — non-representative sample** |
+| Camera resolution | **Observed: 640×360 / 360×640 across all 4 sample clips** — well below the prior 1080p assumption | **Observed (sample); real deployment camera still unconfirmed** |
+| Camera angle | **Observed: eye-level broadcast/handheld and extreme close-up selfie. No elevated/top-down CCTV angle in the sample** | **Partially observed — non-representative sample** |
+| Indoor / Outdoor | Both observed in sample (outdoor site tour, indoor meeting room, indoor workshop) | Observed |
+| Day / Night | Daytime + artificial/indoor lighting observed; no night/IR footage in sample | Assumed (day only) |
+| Detection distance | **Observed: <2 m to ~5–8 m in the sample. No far-range (>10 m) example** | **Partially observed** |
+| Object size (px) | **Observed range 15–350 px across the sample — background/crowd heads (15–25 px) fall below the 32 px floor** | **Observed — risk confirmed, not resolved** |
 | Expected FPS | ≥ 10 FPS, single stream | Decided |
 | Latency budget | ≤ 200 ms/image; ≤ 3 s violation→dashboard | Decided |
 | Accuracy target | See §2.1 | Decided |
 | Number of streams | 1 (POC) | Decided |
 
-Every row marked **Assumed** is a Phase 1 risk: if heads are smaller than ~32 px at the real
-camera distance, YOLO11n @ 640px will miss them and the model choice and image size in the
-TDD must change. Validate these against real footage before annotating.
+**Slice 1.1 recon outcome:** the sample clips in `data/raw/videos/` are not footage from a
+fixed monitoring camera at the intended deployment distance/angle — they are useful for
+annotation practice and pipeline testing, but background/crowd heads in the sample already
+fall below the 32 px comfort floor for YOLO11n @ 640. Per the decision table, this pushes
+toward raising `img_size` to 960 as a precaution, and a short clip from the *actual*
+deployment camera remains the cheapest way to close OQ2 with confidence before Phase 2.
+Full findings: `docs/reports/recon_findings.md`.
 
 ## 5. Data Position
 
@@ -228,7 +232,7 @@ trust.
 |---|---|---|---|---|
 | 1 | Does the dev machine have a CUDA GPU? If CPU-only, the ≥10 FPS live target in §2.2 is unachievable and must be renegotiated. | Phase 2 model sizing | User | **No local GPU.** Training moves to Colab / a rented cloud GPU (per implementation plan Phase 2–3). Local inference is CPU-only — the ≥10 FPS live target in §2.2 is **not achievable on the dev machine as scoped** and must be re-judged in Phase 7.3 against actual CPU throughput, or renegotiated (frame-skipping, smaller `img_size`, or GPU inference hardware) before that gate. |
 | 2 | Real camera resolution, mounting angle, and worker distance — what is the actual head size in pixels? | Phase 1 annotation, imgsz choice | User / site | Deferred to empirical measurement — **Slice 1.1 recon spike**, not answered here. |
-| 3 | Is factory footage cleared for use? Worker consent, on-prem-only storage, retention period? | Phase 1 data collection | User / EHS | **Cleared for use, cloud storage/processing permitted.** Footage may be uploaded to Colab / cloud storage for training (no on-prem-only restriction). Phase 1 collection may proceed. |
+| 3 | Is factory footage cleared for use? Worker consent, on-prem-only storage, retention period? | Phase 1 data collection | User / EHS | **Superseded 2026-07-16.** There is no factory site access for this POC. The dataset actually in use is public/downloaded material (YouTube clips of the IISCO plant + stock images), not first-party factory footage — this resolution's premise (consented site footage) doesn't apply. Recorded as an explicit waiver in `docs/workflow/implementation_plan.md` §Waivers. Cloud storage/processing remains fine for this public data; the original consent question is moot until real site footage is collected. |
 | 4 | How much footage exists or can be captured, and how many `no_helmet` instances can realistically be gathered? Staged violations may be needed — a compliant factory yields few natural positives. | Phase 1 feasibility | User | **Unknown — to be measured, not assumed.** Proceed to Phase 1 provisionally; Slice 1.1 (recon) and Slice 1.2 (dataset plan) must measure real `no_helmet` volume and set an explicit floor. Default assumption until measured: natural violations will likely be insufficient, so **plan to stage violations** and confirm/adjust after recon. The Phase 0→1 gate item "OQ4 answered" is satisfied by this staging default plus the recon measurement, not by a precise headcount. |
 | 5 | AGPL-3.0 (Ultralytics) — internal-only forever, or productized later? Decide before Phase 8. | Phase 8 / commercialization | User | **Internal-only.** AGPL-3.0 is not a blocker under this scope; revisit only if productization/external distribution is later proposed. |
 | 6 | Violation log retention and storage backend (SQLite sufficient for POC?) | M5 | User | Deferred to Phase 5 (low cost to defer, per implementation plan). |
