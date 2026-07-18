@@ -1,8 +1,0 @@
-# Inference-time model config. Read by ml/inference/ and by api-services via ml.inference.
-# The model file itself is the "currently blessed" model in ml/models/ — gitignored.
-
-model_weights: ml/models/best.pt
-img_size: 640
-conf_threshold: 0.35
-iou_threshold: 0.5
-device: auto   # auto | cpu | cuda:0
